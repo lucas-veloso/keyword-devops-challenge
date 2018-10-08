@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+
+IMAGE_NAME="keyword-devops-challange"
+IMAGE_TAG="latest"
+
 cd $(dirname $0)
 
 dev_build() {
@@ -12,12 +16,12 @@ dev_run() {
 
 docker_build() {
   # Your implementation here
-  true
+  docker build -t $IMAGE_NAME:$IMAGE_TAG .
 }
 
 docker_run() {
   # Your implementation here
-  true
+  docker run --rm -p 80:8080 $IMAGE_NAME:$IMAGE_TAG
 }
 
 usage() {
